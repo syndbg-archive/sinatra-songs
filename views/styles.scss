@@ -1,0 +1,126 @@
+$red: #903;
+$black: #444;
+$white: #fff;
+$main-font: Helvetica, Arial, sans-serif;
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: $main-font;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.centered {
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+input {
+  font-size: 17px;
+}
+
+input[type=submit] {
+  width: 50%;
+}
+
+.content-container {
+  @extend .centered;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.rows {
+  flex-flow: row;
+}
+
+h1 {
+  color: $red;
+  font: 32px/1 $main-font;
+}
+
+header h1 {
+  font-size: 40px;
+  line-height: 80px;
+  background: transparent url(/images/logo.png) 0 0 no-repeat;
+  padding-left: 84px;
+}
+
+@mixin tabs ($background: blue, $color: yellow) {
+  ul {
+    border-radius: 20px;
+    list-style: none;
+    margin: 0;
+    background: $background;
+    overflow: hidden;
+  }
+  li {
+    float: left;
+  }
+  a {
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+    background: $background;
+    color: $color;
+    &:hover {
+      background: darken($background, 20%);
+    }
+  }
+}
+
+nav {
+  @include tabs ($background: $black, $color: $white);
+  font-weight: bold;
+}
+
+p {
+  font: 13px/1.4 $main-font;
+}
+
+label {
+  display: block;
+}
+
+nav a.current {
+  background: lighten($black, 5%);
+}
+
+.flash {
+  width: 600px;
+  padding: 5px;
+  font-weight: bold;
+  margin: 20px;
+  background: lighten($red, 60%);
+  color: $red;
+  border: 1px solid $red;
+}
+
+div#like {
+  p {
+    font-weight: bold;
+    color: $red;
+  }
+  input {
+    background: $red url(/images/like.png) 0 2px no-repeat;
+    border: darken($red, 10%) 1px solid;
+    height: 28px;
+    padding-left: 24px;
+  }
+}
